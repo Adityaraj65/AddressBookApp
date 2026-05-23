@@ -1,0 +1,63 @@
+.page-head p {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.page-head a {
+  border-radius: 12px;
+}
+
+.table-card {
+  overflow: hidden;
+}
+
+.toolbar {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) 180px 180px 180px;
+  gap: 14px;
+  padding: 18px 18px 4px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  min-width: 1080px;
+}
+
+th {
+  color: var(--muted);
+  font-weight: 800;
+}
+
+td strong,
+td small {
+  display: block;
+}
+
+td small {
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+.mat-mdc-row {
+  transition: background 140ms ease;
+}
+
+.mat-mdc-row:hover {
+  background: #f8fafc;
+}
+
+@media (max-width: 1000px) {
+  .toolbar {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .toolbar {
+    grid-template-columns: 1fr;
+  }
+}

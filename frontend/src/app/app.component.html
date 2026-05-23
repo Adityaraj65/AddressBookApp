@@ -1,0 +1,70 @@
+<div class="app-shell" [class.sidebar-collapsed]="collapsed()" [class.mobile-open]="mobileMenuOpen()">
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="brand-mark">
+        <mat-icon>contacts</mat-icon>
+      </span>
+      <span class="brand-name">AddressBook</span>
+    </div>
+
+    <nav class="nav-list" aria-label="Main navigation">
+      @for (item of navItems; track item.path) {
+        <a
+          class="nav-item"
+          [routerLink]="item.path"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: item.path === '/dashboard' }"
+          [matTooltip]="collapsed() ? item.label : ''"
+          matTooltipPosition="right"
+        >
+          <mat-icon>{{ item.icon }}</mat-icon>
+          <span>{{ item.label }}</span>
+        </a>
+      }
+    </nav>
+
+    <div class="sidebar-profile">
+      <span class="avatar">JD</span>
+      <div class="profile-copy">
+        <strong>John Doe</strong>
+        <small>Admin</small>
+      </div>
+      <button mat-icon-button aria-label="Profile menu">
+        <mat-icon>expand_more</mat-icon>
+      </button>
+    </div>
+  </aside>
+
+  <div class="overlay" (click)="toggleMobileMenu()"></div>
+
+  <main class="workspace">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button mat-icon-button class="mobile-only" aria-label="Open menu" (click)="toggleMobileMenu()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <button mat-icon-button class="desktop-only" aria-label="Collapse sidebar" (click)="toggleSidebar()">
+          <mat-icon>{{ collapsed() ? 'menu_open' : 'menu' }}</mat-icon>
+        </button>
+        <h1>{{ pageTitle() }}</h1>
+      </div>
+
+      <div class="topbar-right">
+        <label class="global-search desktop-only">
+          <mat-icon>search</mat-icon>
+          <input type="search" placeholder="Search contacts, address books..." />
+        </label>
+        <button mat-icon-button aria-label="Notifications" matBadge="3" matBadgeSize="small">
+          <mat-icon>notifications_none</mat-icon>
+        </button>
+        <button mat-icon-button aria-label="Profile">
+          <span class="avatar small">JD</span>
+        </button>
+      </div>
+    </header>
+
+    <section class="content">
+      <router-outlet></router-outlet>
+    </section>
+  </main>
+</div>

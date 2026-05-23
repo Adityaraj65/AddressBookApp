@@ -1,0 +1,55 @@
+.form-page {
+  display: grid;
+  place-items: start center;
+}
+
+.form-card {
+  width: min(760px, 100%);
+  padding: 28px;
+}
+
+.form-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.form-head h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.form-head p {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.form-actions button {
+  min-width: 132px;
+  border-radius: 12px;
+}
+
+@media (max-width: 680px) {
+  .form-card {
+    padding: 20px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}

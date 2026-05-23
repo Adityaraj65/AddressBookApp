@@ -1,0 +1,37 @@
+.mini-stat {
+  padding: 22px;
+}
+
+.mini-stat span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.mini-stat strong {
+  display: block;
+  margin: 10px 0;
+  font-size: 30px;
+}
+
+.mini-stat small {
+  color: var(--success);
+  font-weight: 700;
+}
+
+.donut-wrap {
+  display: grid;
+  justify-items: center;
+}
+
+.state-list {
+  width: min(320px, 100%);
+  margin-top: 18px;
+}
+
+.state-list p {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  color: var(--muted);
+}

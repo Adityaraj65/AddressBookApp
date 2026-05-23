@@ -1,0 +1,107 @@
+<div class="page">
+  <section class="grid stat-grid">
+    <mat-card class="stat-card">
+      <div>
+        <span>Total Address Books</span>
+        <strong>{{ metrics().totalAddressBooks }}</strong>
+        <small>+ 2 this month</small>
+      </div>
+      <span class="soft-icon"><mat-icon>auto_stories</mat-icon></span>
+    </mat-card>
+    <mat-card class="stat-card">
+      <div>
+        <span>Total Contacts</span>
+        <strong>{{ metrics().totalContacts }}</strong>
+        <small>+ 18 this month</small>
+      </div>
+      <span class="soft-icon blue"><mat-icon>groups</mat-icon></span>
+    </mat-card>
+    <mat-card class="stat-card">
+      <div>
+        <span>Cities Covered</span>
+        <strong>{{ metrics().citiesCovered }}</strong>
+        <small>+ 5 this month</small>
+      </div>
+      <span class="soft-icon green"><mat-icon>location_on</mat-icon></span>
+    </mat-card>
+    <mat-card class="stat-card">
+      <div>
+        <span>States Covered</span>
+        <strong>{{ metrics().statesCovered }}</strong>
+        <small>+ 2 this month</small>
+      </div>
+      <span class="soft-icon orange"><mat-icon>map</mat-icon></span>
+    </mat-card>
+  </section>
+
+  <section class="grid dashboard-grid">
+    <mat-card class="panel">
+      <div class="panel-head">
+        <h2 class="section-title">Recent Contacts</h2>
+        <a routerLink="/contacts">View All</a>
+      </div>
+      <div class="contact-list">
+        @for (contact of recentContacts(); track contact.id) {
+          <a class="contact-row" [routerLink]="['/contacts', contact.id]">
+            <span class="avatar">{{ contact.firstName[0] }}{{ contact.lastName[0] }}</span>
+            <div>
+              <strong>{{ contact.firstName }} {{ contact.lastName }}</strong>
+              <small>{{ contact.city }}, {{ contact.state }}</small>
+            </div>
+            <span>{{ contact.phoneNumber }}</span>
+          </a>
+        }
+      </div>
+    </mat-card>
+
+    <mat-card class="chart-card">
+      <h2 class="section-title">Contacts by City</h2>
+      @for (item of cityChart(); track item.label) {
+        <div class="bar-row">
+          <span>{{ item.label }}</span>
+          <span class="bar-track"><span class="bar-fill" [style.width.%]="percentage(item.value, cityChart())"></span></span>
+          <strong>{{ item.value }}</strong>
+        </div>
+      }
+    </mat-card>
+
+    <mat-card class="chart-card donut-card">
+      <h2 class="section-title">Contacts by State</h2>
+      <div class="donut">
+        <div class="donut-inner">
+          <strong>{{ metrics().totalContacts }}</strong>
+          <span>Total</span>
+        </div>
+      </div>
+      <div class="legend">
+        @for (item of stateChart(); track item.label) {
+          <span><i></i>{{ item.label }} <b>{{ item.value }}</b></span>
+        }
+      </div>
+    </mat-card>
+  </section>
+
+  <section class="grid two-col">
+    <mat-card class="panel">
+      <h2 class="section-title">Activity Timeline</h2>
+      <div class="timeline">
+        <p><i></i>New contact <strong>Emma Williams</strong> added <span>2 min ago</span></p>
+        <p><i></i>Address book <strong>Friends</strong> created <span>15 min ago</span></p>
+        <p><i></i>Contact <strong>Robert Johnson</strong> updated <span>1 hour ago</span></p>
+        <p><i></i>New contact <strong>Sophia Davis</strong> added <span>2 hours ago</span></p>
+      </div>
+    </mat-card>
+
+    <mat-card class="panel quick-actions">
+      <h2 class="section-title">Quick Actions</h2>
+      <a mat-flat-button color="primary" routerLink="/address-books">
+        <mat-icon>add</mat-icon>
+        Add Address Book
+      </a>
+      <a mat-stroked-button color="primary" routerLink="/contacts/new">
+        <mat-icon>add</mat-icon>
+        Add Contact
+      </a>
+    </mat-card>
+  </section>
+</div>

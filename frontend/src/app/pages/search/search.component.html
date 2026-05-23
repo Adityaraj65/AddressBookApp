@@ -1,0 +1,36 @@
+<div class="search-page">
+  <mat-card class="search-card">
+    <mat-form-field appearance="outline">
+      <mat-label>Search by name, city, state, email, phone...</mat-label>
+      <mat-icon matPrefix>search</mat-icon>
+      <input matInput [formControl]="query" />
+    </mat-form-field>
+
+    <mat-tab-group animationDuration="180ms">
+      <mat-tab label="All"></mat-tab>
+      <mat-tab label="Contacts"></mat-tab>
+      <mat-tab label="Address Books"></mat-tab>
+    </mat-tab-group>
+
+    <div class="chips">
+      <span class="pill">New York</span>
+      <span class="pill">California</span>
+      <span class="pill">John</span>
+      <span class="pill">Texas</span>
+    </div>
+
+    <h2 class="section-title">Search Results ({{ results().length }})</h2>
+    <div class="result-grid">
+      @for (contact of results(); track contact.id) {
+        <a mat-card class="result-card" [routerLink]="['/contacts', contact.id]">
+          <span class="avatar">{{ contact.firstName[0] }}{{ contact.lastName[0] }}</span>
+          <div>
+            <strong>{{ contact.firstName }} {{ contact.lastName }}</strong>
+            <small>{{ contact.city }}, {{ contact.state }}</small>
+            <span>{{ contact.phoneNumber }}</span>
+          </div>
+        </a>
+      }
+    </div>
+  </mat-card>
+</div>

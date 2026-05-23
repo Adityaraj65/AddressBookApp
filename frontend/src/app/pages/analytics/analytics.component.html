@@ -1,0 +1,36 @@
+<div class="page">
+  <section class="grid stat-grid">
+    <mat-card class="mini-stat"><span>Total Contacts</span><strong>{{ metrics().totalContacts }}</strong><small>+ 18 from last month</small></mat-card>
+    <mat-card class="mini-stat"><span>Address Books</span><strong>{{ metrics().totalAddressBooks }}</strong><small>+ 2 from last month</small></mat-card>
+    <mat-card class="mini-stat"><span>Cities</span><strong>{{ metrics().citiesCovered }}</strong><small>+ 5 from last month</small></mat-card>
+    <mat-card class="mini-stat"><span>States</span><strong>{{ metrics().statesCovered }}</strong><small>+ 2 from last month</small></mat-card>
+  </section>
+
+  <section class="grid two-col">
+    <mat-card class="chart-card">
+      <h2 class="section-title">Contacts by City</h2>
+      @for (item of cityChart(); track item.label) {
+        <div class="bar-row">
+          <span>{{ item.label }}</span>
+          <span class="bar-track"><span class="bar-fill" [style.width.%]="percentage(item.value, cityChart())"></span></span>
+          <strong>{{ item.value }}</strong>
+        </div>
+      }
+    </mat-card>
+
+    <mat-card class="chart-card donut-wrap">
+      <h2 class="section-title">Contacts by State</h2>
+      <div class="donut">
+        <div class="donut-inner">
+          <strong>{{ metrics().totalContacts }}</strong>
+          <span>Total</span>
+        </div>
+      </div>
+      <div class="state-list">
+        @for (item of stateChart(); track item.label) {
+          <p><span>{{ item.label }}</span><strong>{{ item.value }}</strong></p>
+        }
+      </div>
+    </mat-card>
+  </section>
+</div>

@@ -1,0 +1,43 @@
+.settings-page {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+  gap: 22px;
+}
+
+.settings-card {
+  padding: 24px;
+}
+
+.profile-row,
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.profile-row p,
+.setting-row p {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.avatar.large {
+  width: 68px;
+  height: 68px;
+  font-size: 20px;
+}
+
+@media (max-width: 900px) {
+  .settings-page {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .profile-row,
+  .setting-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

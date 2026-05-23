@@ -1,0 +1,47 @@
+@if (contact(); as person) {
+  <div class="details-layout">
+    <mat-card class="profile-card">
+      <span class="avatar large">{{ person.firstName[0] }}{{ person.lastName[0] }}</span>
+      <h2>{{ person.firstName }} {{ person.lastName }}</h2>
+      <span class="pill">{{ person.addressBookName }}</span>
+      <p><mat-icon>phone</mat-icon>{{ person.phoneNumber }}</p>
+      <p><mat-icon>mail</mat-icon>{{ person.email }}</p>
+      <p><mat-icon>location_on</mat-icon>{{ person.address }}<br />{{ person.city }}, {{ person.state }} {{ person.zip }}</p>
+    </mat-card>
+
+    <div class="info-stack">
+      <div class="detail-actions">
+        <a mat-stroked-button color="primary" [routerLink]="['/contacts', person.id, 'edit']">
+          <mat-icon>edit</mat-icon>
+          Edit
+        </a>
+        <button mat-stroked-button color="warn" (click)="deleteContact()">
+          <mat-icon>delete_outline</mat-icon>
+          Delete
+        </button>
+      </div>
+
+      <mat-card class="info-card">
+        <h3>Personal Information</h3>
+        <div class="info-grid">
+          <div><span>First Name</span><strong>{{ person.firstName }}</strong></div>
+          <div><span>Last Name</span><strong>{{ person.lastName }}</strong></div>
+          <div><span>Email</span><strong>{{ person.email }}</strong></div>
+          <div><span>Phone</span><strong>{{ person.phoneNumber }}</strong></div>
+        </div>
+      </mat-card>
+
+      <mat-card class="info-card">
+        <h3>Address Information</h3>
+        <div class="info-grid">
+          <div><span>Address</span><strong>{{ person.address }}</strong></div>
+          <div><span>City</span><strong>{{ person.city }}</strong></div>
+          <div><span>State</span><strong>{{ person.state }}</strong></div>
+          <div><span>Zip</span><strong>{{ person.zip }}</strong></div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+} @else {
+  <mat-card class="empty-state">Contact not found.</mat-card>
+}

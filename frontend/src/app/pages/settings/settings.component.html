@@ -1,0 +1,38 @@
+<div class="settings-page">
+  <mat-card class="settings-card">
+    <h2 class="section-title">Profile</h2>
+    <div class="profile-row">
+      <span class="avatar large">JD</span>
+      <div>
+        <strong>John Doe</strong>
+        <p>admin&#64;addressbook.local</p>
+      </div>
+      <button mat-stroked-button color="primary">Edit Profile</button>
+    </div>
+  </mat-card>
+
+  <mat-card class="settings-card">
+    <h2 class="section-title">Preferences</h2>
+    <div class="setting-row">
+      <div>
+        <strong>Theme</strong>
+        <p>Light mode with indigo accents</p>
+      </div>
+      <mat-slide-toggle checked>Light</mat-slide-toggle>
+    </div>
+    <div class="setting-row">
+      <div>
+        <strong>Notifications</strong>
+        <p>Show contact and activity alerts</p>
+      </div>
+      <mat-slide-toggle [checked]="notifications()" (change)="notifications.set($event.checked)"></mat-slide-toggle>
+    </div>
+    <div class="setting-row">
+      <div>
+        <strong>Compact Tables</strong>
+        <p>Reduce row height for dense workflows</p>
+      </div>
+      <mat-slide-toggle [checked]="compactMode()" (change)="compactMode.set($event.checked)"></mat-slide-toggle>
+    </div>
+  </mat-card>
+</div>

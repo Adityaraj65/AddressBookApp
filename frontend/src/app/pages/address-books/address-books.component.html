@@ -1,0 +1,37 @@
+<div class="page">
+  <div class="page-head">
+    <div>
+      <h2 class="page-title">Address Books</h2>
+      <p>Organize contacts into focused collections.</p>
+    </div>
+    <button mat-flat-button color="primary" (click)="openCreateDialog()">
+      <mat-icon>add</mat-icon>
+      Create Address Book
+    </button>
+  </div>
+
+  <section class="book-grid">
+    @for (book of addressBooks(); track book.id) {
+      <mat-card class="book-card">
+        <div class="book-icon">
+          <mat-icon>auto_stories</mat-icon>
+        </div>
+        <h3>{{ book.name }}</h3>
+        <p>{{ book.contacts.length }} Contacts</p>
+        <div class="book-actions">
+          <a mat-stroked-button [routerLink]="['/contacts']">
+            <mat-icon>visibility</mat-icon>
+            View
+          </a>
+          <button mat-stroked-button (click)="openEditDialog(book)">
+            <mat-icon>edit</mat-icon>
+            Edit
+          </button>
+          <button mat-icon-button color="warn" aria-label="Delete address book" (click)="deleteAddressBook(book)">
+            <mat-icon>delete_outline</mat-icon>
+          </button>
+        </div>
+      </mat-card>
+    }
+  </section>
+</div>

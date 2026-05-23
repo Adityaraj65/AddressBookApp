@@ -1,0 +1,218 @@
+.app-shell {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 22px 16px;
+  color: #fff;
+  background: linear-gradient(180deg, #3349c9 0%, #2437a9 100%);
+  box-shadow: 12px 0 34px rgba(36, 55, 169, 0.18);
+  transition: width 180ms ease, transform 180ms ease;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  margin-bottom: 24px;
+  padding: 0 8px;
+}
+
+.brand-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.brand-name {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.nav-list {
+  display: grid;
+  gap: 8px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 46px;
+  padding: 0 12px;
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 14px;
+  font-weight: 700;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateX(2px);
+}
+
+.sidebar-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  padding: 12px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.profile-copy {
+  display: grid;
+  min-width: 0;
+}
+
+.profile-copy strong {
+  font-size: 13px;
+}
+
+.profile-copy small {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.workspace {
+  min-width: 0;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 72px;
+  padding: 0 28px;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.86);
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(18px);
+}
+
+.topbar-left,
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.global-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: min(380px, 32vw);
+  height: 42px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--muted);
+  background: #fff;
+}
+
+.global-search input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  color: var(--ink);
+}
+
+.content {
+  padding: 28px;
+}
+
+.avatar.small {
+  width: 34px;
+  height: 34px;
+  font-size: 12px;
+}
+
+.sidebar-collapsed {
+  grid-template-columns: 86px 1fr;
+}
+
+.sidebar-collapsed .sidebar {
+  align-items: center;
+}
+
+.sidebar-collapsed .brand-name,
+.sidebar-collapsed .nav-item span,
+.sidebar-collapsed .profile-copy,
+.sidebar-collapsed .sidebar-profile button {
+  display: none;
+}
+
+.sidebar-collapsed .nav-item {
+  justify-content: center;
+  width: 52px;
+  padding: 0;
+}
+
+.sidebar-collapsed .sidebar-profile {
+  padding: 8px;
+}
+
+.overlay {
+  display: none;
+}
+
+@media (max-width: 820px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: fixed;
+    z-index: 40;
+    width: 260px;
+    transform: translateX(-100%);
+  }
+
+  .mobile-open .sidebar {
+    transform: translateX(0);
+  }
+
+  .mobile-open .overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 30;
+    display: block;
+    background: rgba(15, 23, 42, 0.34);
+  }
+
+  .topbar {
+    min-height: 64px;
+    padding: 0 16px;
+  }
+
+  .topbar h1 {
+    font-size: 18px;
+  }
+
+  .content {
+    padding: 18px;
+  }
+}
