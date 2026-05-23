@@ -1,0 +1,87 @@
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+*.sublime-project
+*.sublime-workspace
+
+# Backend - Java/Maven
+backend/target/
+backend/bin/
+backend/.classpath
+backend/.project
+backend/.settings/
+backend/*.class
+backend/*.jar
+backend/*.war
+
+# Frontend - Node and Angular
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/npm-debug.log
+frontend/yarn-debug.log
+frontend/yarn-error.log
+
+# Build artifacts
+target/
+bin/
+build/
+out/
+
+# Compiled files
+*.class
+*.jar
+*.war
+*.ear
+
+# Logs
+*.log
+logs/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+backend/src/main/resources/application-local.properties
+
+# OS and temporary files
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+desktop.ini
+
+# IntelliJ IDEA
+*.iml
+*.iws
+*.ipr
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Maven
+.mvn/
+mvnw
+mvnw.cmd
+
+# Package manager
+package-lock.json
+yarn.lock
+
+# IDE configuration
+.vscode/settings.json
+.vscode/extensions.json
+.vscode/launch.json
+.vscode/tasks.json
+
+# Cache and runtime
+*.cache
+.cache/
+dependency-reduced-pom.xml
